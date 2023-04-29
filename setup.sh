@@ -24,14 +24,16 @@ sudo apt install python-pip -y
 sudo apt install python3-pip -y
 
 pyenv global 3.8.0
-python3 -m pip install --user pipx
+python -m pip install --user pipx
 python3 -m pipx ensurepath
+python3 -m pip install --user -U pipx
 source ~/.bashrc
 #source  .~/.bashrc
 
 sudo apt-get -y install libunwind-dev
 sudo apt-get -y install liblz4-dev
 python3 -m pip install memray
+
 
 pipx install ddev
 
