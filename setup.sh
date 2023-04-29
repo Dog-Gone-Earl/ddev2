@@ -14,7 +14,6 @@ sudo sed -i '1 i\export PYENV_ROOT="$HOME/.pyenv"' ~/.bashrc
 #exec "$SHELL"
 
 curl -s https://pyenv.run | bash
-source ~/.bashrc
 pyenv update
 
 #install python 3.8.0
