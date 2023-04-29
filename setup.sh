@@ -7,16 +7,19 @@ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl
 
+#exec "$SHELL"
+
+curl -s https://pyenv.run | bash
+
 sudo sed -i '1 i\eval "$(pyenv init -)"' ~/.bashrc
 #sudo sed -i '1 i\command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc
+sudo sed -i '1 i\command -v pyenv >/dev/null' ~/.bashrc
 sudo sed -i '1 i\export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc
 sudo sed -i '1 i\export PYENV_ROOT="$HOME/.pyenv"' ~/.bashrc
 sudo sed -i '1 i\eval "$(pyenv virtualenv-init -)"' ~/.bashrc
 
+source ~/.bashrc
 
-#exec "$SHELL"
-
-curl -s https://pyenv.run | bash
 pyenv update
 
 #install python 3.8.0
@@ -30,7 +33,7 @@ pyenv global 3.8.0
 python -m pip install --user pipx
 python3 -m pipx ensurepath
 python3 -m pip install --user -U pipx
-source ~/.bashrc
+
 #source  .~/.bashrc
 
 sudo apt-get -y install libunwind-dev
