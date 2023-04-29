@@ -8,8 +8,11 @@ libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl
 
 sudo sed -i '1 i\eval "$(pyenv init -)"' ~/.bashrc
-sudo sed -i '1 i\command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc
+#sudo sed -i '1 i\command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc
+sudo sed -i '1 i\export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc
 sudo sed -i '1 i\export PYENV_ROOT="$HOME/.pyenv"' ~/.bashrc
+sudo sed -i '1 i\eval "$(pyenv virtualenv-init -)"' ~/.bashrc
+
 
 #exec "$SHELL"
 
