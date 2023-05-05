@@ -21,5 +21,5 @@ Vagrant.configure("2") do |config|
   #config.vm.provision :file, source: './data', destination: '~/data'
   #config.vm.provision :file, source: '~/.sandbox.conf.sh', destination: '~/.sandbox.conf.sh'
   config.vm.provision "file", source: "./setup.sh", destination: "/home/vagrant/setup.sh"
-  #config.vm.provision "shell", path: "./setup.sh", privileged: false
+  config.vm.provision "shell", path: "./setup.sh", privileged: false
 end
