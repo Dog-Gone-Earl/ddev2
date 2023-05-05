@@ -11,8 +11,9 @@ Vagrant.configure("2") do |config|
     v.gui = true
     v.linked_clone = false
     v.vmx["ethernet0.virtualdev"] = "vmxnet3"
-    end 
+    
   config.vm.provision "shell", privileged: true, inline: <<-SHELL
+  end
   #sudo apt-get update
   #yes y | sudo apt-get upgrade
   config.vm.provision "shell", inline: "mkdir ~/data"
