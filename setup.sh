@@ -43,6 +43,9 @@ sudo usermod -aG docker $USER
 
 pip install datadog-checks-dev[cli]
 
+ddev config set core /home/vagrant/integrations-core
+ddev config set extras /home/vagrant/integrations-extras
+
 #open a new terminal with 'cmd+t'
 #vagrant ssh
 #pipx install ddev
