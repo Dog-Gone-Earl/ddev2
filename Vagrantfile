@@ -17,5 +17,5 @@ Vagrant.configure("2") do |config|
   #yes y | sudo apt-get upgrade
   config.vm.provision "shell", inline: "mkdir ~/data"
   config.vm.provision "file", source: "~/setup.sh, destination: "/home/vagrant/data"
-  SHELL
+  
 end
