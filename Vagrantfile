@@ -5,18 +5,21 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "uwbbi/bionic-arm64"https://github.com/Dog-Gone-Earl/ddev2/blob/main/Vagrantfile
+  config.vm.box = "uwbbi/bionic-arm64"
   config.vm.provider "vmware_desktop" do |v|
     v.ssh_info_public = true
     v.gui = true
     v.linked_clone = false
     v.vmx["ethernet0.virtualdev"] = "vmxnet3"
-    
+    end 
+  #config.vm.synced_folder "./shared", "/home/vagrant/shared", create: true
   config.vm.provision "shell", privileged: true, inline: <<-SHELL
-  end
   #sudo apt-get update
   #yes y | sudo apt-get upgrade
+  SHELL
   config.vm.provision "shell", inline: "mkdir ~/data"
-  config.vm.provision "file", source: "~/setup.sh, destination: "/home/vagrant/data"
-  
+  #config.vm.provision :file, source: './data', destination: '~/data'
+  #config.vm.provision :file, source: '~/.sandbox.conf.sh', destination: '~/.sandbox.conf.sh'
+  config.vm.provision "file", source: "~/setup.sh", destination: "/home/vagrant/data"
+  #config.vm.provision "shell", path: "./setup.sh", privileged: false
 end
