@@ -12,14 +12,12 @@ Vagrant.configure("2") do |config|
     v.linked_clone = false
     v.vmx["ethernet0.virtualdev"] = "vmxnet3"
     end 
-  #config.vm.synced_folder "./shared", "/home/vagrant/shared", create: true
+
   config.vm.provision "shell", privileged: true, inline: <<-SHELL
   #sudo apt-get update
   #yes y | sudo apt-get upgrade
   SHELL
   config.vm.provision "shell", inline: "mkdir ~/data"
-  #config.vm.provision :file, source: './data', destination: '~/data'
-  #config.vm.provision :file, source: '~/.sandbox.conf.sh', destination: '~/.sandbox.conf.sh'
-  config.vm.provision "file", source: "./setup.sh", destination: "/home/vagrant/setup.sh"
-  config.vm.provision "shell", path: "./setup.sh", privileged: false
+  config.vm.provision :file, source: './data', destination: '~/data'
+  config.vm.provision "shell", path: "./data/setup.sh", privileged: false
 end
